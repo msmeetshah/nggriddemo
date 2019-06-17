@@ -17,7 +17,7 @@ export class UsersService {
 
   adduser(usr: Users) {
     this.data.push(usr);
-    console.log(usr);
+    console.log(this.data);
     // const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     // return this.http.post<Users>(this.URL, usr, httpOptions);
   }
