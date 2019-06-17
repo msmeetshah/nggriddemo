@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "Id": "1",
+      "Name": "M S Dhoni",
+      "Address": "Ranchi",
+      "Phno": "9875475236",
+      "Gender": "male",
+      "Image": "https://i.cricketcb.com/stats/img/faceImages/265.jpg"
+    },
+    {
+      "Id": "2",
+      "Name": "Sachin Tendulkar",
+      "Address": "Mumbai",
+      "Phno": "6352451230",
+      "Gender": "male",
+      "Image": "http://p.imgci.com/db/PICTURES/CMS/128400/128483.1.jpg"
+    },
+    {
+      "Id": "3",
+      "Name": "Rohit Sharma",
+      "Address": "Mumbai",
+      "Phno": "9023942342",
+      "Gender": "male",
+      "Image": "https://i.pinimg.com/originals/54/8f/71/548f711858d49ed4adc5098b36dcbfee.jpg"
+    },
+    {
+      "Id": "4",
+      "Name": "P V Sindhu",
+      "Address": "Hyderabad",
+      "Phno": "9874123650",
+      "Gender": "female",
+      "Image": "https://images.news18.com/ibnlive/uploads/2016/10/PVSindhu-1.jpg"
+    },
+    {
+      "Id": "5",
+      "Name": "Saina Nehwal",
+      "Address": "Haryana",
+      "Phno": "9977453628",
+      "Gender": "female",
+      "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Saina_Nehwal_in_2011.jpg/220px-Saina_Nehwal_in_2011.jpg"
+    }
+  ]
+}
