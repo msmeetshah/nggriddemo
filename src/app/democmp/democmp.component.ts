@@ -33,10 +33,6 @@ export class DemocmpComponent implements OnInit {
   public dataStateChange(state: State): void {
     this.state = <DataStateChangeEvent>state;
     this.gridData = process(this.usersData, this.state);
-    // this._userservice.getAllUsers().subscribe(res => {
-    //   this.usersData = res;
-    //   this.dataStateChange(this.state);
-    // });
   }
 
   constructor(private _userservice: UsersService) {
@@ -71,14 +67,11 @@ export class DemocmpComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-
-
     if (confirm('Are you sure want to delete')) {
-
       // console.log(dataItem);
       this._userservice.removedata(dataItem).subscribe(data => {
         console.log('delete called', data);
-        this.usersData.splice(this.usersData.indexOf(dataItem),1);
+        this.usersData.splice(this.usersData.indexOf(dataItem), 1);
         this.dataStateChange(this.state);
       }, (err => {
         console.log('error occured', err);
@@ -101,5 +94,8 @@ export class DemocmpComponent implements OnInit {
 
   public editHandler({ sender, rowIndex, dataItem }) {
 
+    this.closeEditor(sender);
+
+    console.log("rowIndex is" ,rowIndex);
   }
 }
