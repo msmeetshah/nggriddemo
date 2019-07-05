@@ -23,9 +23,9 @@ export class UsersService {
   }
 
   removedata(data: Users) {
-    console.log(data.id);
+    console.log(data);
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    return this.http.delete<Users>(this.URL, httpOptions);
+    return this.http.delete<Users>(this.URL + "/" + data.id, httpOptions);
   }
 
 }

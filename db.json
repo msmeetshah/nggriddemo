@@ -50,22 +50,6 @@
       "id": "EP346gM"
     },
     {
-      "Name": "sdfdsf",
-      "Address": "sdfdsf",
-      "Phno": 123,
-      "Gender": "sad",
-      "Image": "asd",
-      "id": "1xhnfxC"
-    },
-    {
-      "Name": "asdsad",
-      "Address": "asdsadsa",
-      "Phno": 1231,
-      "Gender": "asdasd",
-      "Image": "adasd",
-      "id": "dNRbGuf"
-    },
-    {
       "Name": "Shreenil",
       "Address": "Ahmedabad",
       "Phno": 2133234,
@@ -74,28 +58,12 @@
       "id": "J4Tv75v"
     },
     {
-      "Name": "Tester",
-      "Address": "tester",
-      "Phno": 82346,
-      "Gender": "male",
-      "Image": "ashjdg",
-      "id": "4cmb_Kn"
-    },
-    {
-      "Name": "sdfsdf",
+      "Name": "dasd",
       "Address": "sdf",
-      "Phno": 435,
-      "Gender": "sf",
-      "Image": "sdf",
-      "id": "i-tVNgP"
-    },
-    {
-      "Name": "werewr",
-      "Address": "wer",
-      "Phno": 4334,
+      "Phno": 324,
       "Gender": "wer",
-      "Image": "rew",
-      "id": "TMZ_Ssl"
+      "Image": "er",
+      "id": "e6HPFSf"
     }
   ]
 }

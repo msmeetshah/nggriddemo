@@ -71,20 +71,29 @@ export class DemocmpComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    // console.log(dataItem);
-    this._userservice.removedata(dataItem).subscribe(data => {
-      console.log("delete callesd", data);
-    }, (err => {
-      console.log("error", err);
-    })
-    );
+
+
+    if (confirm('Are you sure want to delete')) {
+
+      // console.log(dataItem);
+      this._userservice.removedata(dataItem).subscribe(data => {
+        console.log('delete called', data);
+        this.usersData.splice(this.usersData.indexOf(dataItem),1);
+        this.dataStateChange(this.state);
+      }, (err => {
+        console.log('error', err);
+      })
+      );
+    }
   }
   public saveHandler({ sender, rowIndex, formGroup, isNew }) {
 
     const user: Users = formGroup.value;
     // console.log(user);
     this._userservice.adduser(user).subscribe(data => {
-      console.log("api result", data);
+      console.log('api result', data);
+      this.usersData.push(data);
+      this.dataStateChange(this.state);
     });
     this.dataStateChange(this.state);
     sender.closeRow(rowIndex);
