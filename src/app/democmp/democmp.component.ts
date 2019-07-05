@@ -81,7 +81,7 @@ export class DemocmpComponent implements OnInit {
         this.usersData.splice(this.usersData.indexOf(dataItem),1);
         this.dataStateChange(this.state);
       }, (err => {
-        console.log('error', err);
+        console.log('error occured', err);
       })
       );
     }
