@@ -16,14 +16,16 @@ export class UsersService {
   }
 
   adduser(usr: Users) {
-    this.data.push(usr);
-    console.log(this.data);
-    // const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-    // return this.http.post<Users>(this.URL, usr, httpOptions);
+    // this.data.push(usr);
+
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.post<Users>(this.URL, usr, httpOptions);
   }
 
-  remove(data: Users){
-    this.data = [];
+  removedata(data: Users) {
+    console.log(data.id);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.delete<Users>(this.URL, httpOptions);
   }
 
 }

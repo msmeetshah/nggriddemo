@@ -33,6 +33,10 @@ export class DemocmpComponent implements OnInit {
   public dataStateChange(state: State): void {
     this.state = <DataStateChangeEvent>state;
     this.gridData = process(this.usersData, this.state);
+    // this._userservice.getAllUsers().subscribe(res => {
+    //   this.usersData = res;
+    //   this.dataStateChange(this.state);
+    // });
   }
 
   constructor(private _userservice: UsersService) {
@@ -45,7 +49,7 @@ export class DemocmpComponent implements OnInit {
     });
   }
   public addHandler({ sender }) {
-
+    this.closeEditor(sender);
     this.formGroup = new FormGroup({
       'Name': new FormControl('', Validators.required),
       'Address': new FormControl('', Validators.required),
@@ -67,13 +71,26 @@ export class DemocmpComponent implements OnInit {
   }
 
   public removeHandler({ dataItem }) {
-    this._userservice.remove(dataItem);
+    // console.log(dataItem);
+    this._userservice.removedata(dataItem).subscribe(data => {
+      console.log("delete callesd", data);
+    }, (err => {
+      console.log("error", err);
+    })
+    );
   }
   public saveHandler({ sender, rowIndex, formGroup, isNew }) {
+
     const user: Users = formGroup.value;
-
-    this._userservice.adduser(user);
-
+    // console.log(user);
+    this._userservice.adduser(user).subscribe(data => {
+      console.log("api result", data);
+    });
+    this.dataStateChange(this.state);
     sender.closeRow(rowIndex);
+  }
+
+  public editHandler({ sender, rowIndex, dataItem }) {
+
   }
 }
