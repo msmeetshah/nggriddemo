@@ -6,7 +6,6 @@ import { State, process } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EditService } from '@progress/kendo-angular-grid/dist/es2015/editing/edit.service';
-import { send } from 'q';
 
 @Component({
   selector: 'app-democmp',
@@ -19,8 +18,7 @@ export class DemocmpComponent implements OnInit {
   public gridData: GridDataResult;
   private editedRowIndex: number;
   public formGroup: FormGroup;
-  private editService: EditService;
-
+  
   public state: State = {
     skip: 0,
     take: 10,
@@ -72,7 +70,7 @@ export class DemocmpComponent implements OnInit {
     if (confirm('Are you sure want to delete')) {
       // console.log(dataItem);
       this._userservice.removedata(dataItem).subscribe(data => {
-        console.log('delete called', data);
+        // console.log('delete called', data);
         this.usersData.splice(this.usersData.indexOf(dataItem), 1);
         this.dataStateChange(this.state);
       }, (err => {
@@ -83,32 +81,48 @@ export class DemocmpComponent implements OnInit {
   }
   public saveHandler({ sender, rowIndex, formGroup, isNew }) {
 
+    
     const user: Users = formGroup.value;
     // console.log(user);
-    this._userservice.adduser(user).subscribe(data => {
-      console.log('api result', data);
-      this.usersData.push(data);
+
+    if (isNew == true) {
+      // console.log("isnew if");
+      this._userservice.adduser(user).subscribe(data => {
+        // console.log('api result', data);
+        this.usersData.push(data);
+        this.dataStateChange(this.state);
+      });
       this.dataStateChange(this.state);
-    });
-    this.dataStateChange(this.state);
-    sender.closeRow(rowIndex);
+      sender.closeRow(rowIndex);
+
+    } else {
+      
+      // console.log("isnew else");
+      this._userservice.edituser(user).subscribe(data => {
+        // console.log('api result', data);
+  
+        var temp = this.usersData.find(x => user.id);
+        console.log("temp is",temp.id);
+        this.dataStateChange(this.state);
+      });
+      // this.dataStateChange(this.state);
+      sender.closeRow(rowIndex);
+    }
   }
 
   public editHandler({ sender, rowIndex, dataItem }) {
 
-    console.log("Button clicked");
-    console.log("Dataitem is", dataItem);
-    console.log("Row Index is", rowIndex);
-
     this.formGroup = new FormGroup({
-      'Name': new FormControl(dataItem.Name,Validators.required),
+      'Name': new FormControl(dataItem.Name, Validators.required),
       'Address': new FormControl(dataItem.Address, Validators.required),
       'Phno': new FormControl(dataItem.Phno, Validators.compose([Validators.required, Validators.pattern('^[0-9]{1,9}')])),
-      'Gender': new FormControl(dataItem.Gender)
-      // 'Image': new FormControl(dataItem.Image)
+      'Gender': new FormControl(dataItem.Gender),
+      'Image': new FormControl(dataItem.Image),
+      'id': new FormControl(dataItem.id)
     });
-    this.editedRowIndex =rowIndex;
 
-    sender.editRow(rowIndex,this.formGroup);
+    this.editedRowIndex = rowIndex;
+    sender.editRow(rowIndex, this.formGroup);
+    // console.log("form Group Value is", this.formGroup.value);
   }
 }

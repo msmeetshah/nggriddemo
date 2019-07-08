@@ -8,8 +8,8 @@
     <kendo-grid [data]="gridData" [sortable]="true" [pageable]="true" [filterable]="true" filterable="menu"
       [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [filter]="state.filter"
       (dataStateChange)='dataStateChange($event)' [groupable]="true" (add)="addHandler($event)"
-     (cancel)="cancelHandler($event)" (save)="saveHandler($event)"
-      (remove)="removeHandler($event)" (edit)="editHandler($event)">
+      (cancel)="cancelHandler($event)" (save)="saveHandler($event)" (remove)="removeHandler($event)"
+      (edit)="editHandler($event)">
 
       <ng-template kendoGridToolbarTemplate>
         <button kendoGridPDFCommand icon="file-pdf" style="background: lightgrey;color: black;">Export to PDF</button>

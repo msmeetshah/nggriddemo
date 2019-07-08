@@ -26,4 +26,10 @@ export class UsersService {
     return this.http.delete<Users>(this.URL + "/" + data.id, httpOptions);
   }
 
+  edituser(usredit: Users){
+    // console.log(usredit);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    return this.http.put<Users>(this.URL + "/" + usredit.id,usredit, httpOptions);
+  }
+
 }
