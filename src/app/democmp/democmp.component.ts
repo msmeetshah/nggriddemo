@@ -6,6 +6,7 @@ import { State, process } from '@progress/kendo-data-query';
 import { Observable } from 'rxjs/Observable';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EditService } from '@progress/kendo-angular-grid/dist/es2015/editing/edit.service';
+import { send } from 'q';
 
 @Component({
   selector: 'app-democmp',
@@ -18,6 +19,7 @@ export class DemocmpComponent implements OnInit {
   public gridData: GridDataResult;
   private editedRowIndex: number;
   public formGroup: FormGroup;
+  private editService: EditService;
 
   public state: State = {
     skip: 0,
@@ -94,8 +96,19 @@ export class DemocmpComponent implements OnInit {
 
   public editHandler({ sender, rowIndex, dataItem }) {
 
-    this.closeEditor(sender);
+    console.log("Button clicked");
+    console.log("Dataitem is", dataItem);
+    console.log("Row Index is", rowIndex);
 
-    console.log("rowIndex is" ,rowIndex);
+    this.formGroup = new FormGroup({
+      'Name': new FormControl(dataItem.Name,Validators.required),
+      'Address': new FormControl(dataItem.Address, Validators.required),
+      'Phno': new FormControl(dataItem.Phno, Validators.compose([Validators.required, Validators.pattern('^[0-9]{1,9}')])),
+      'Gender': new FormControl(dataItem.Gender)
+      // 'Image': new FormControl(dataItem.Image)
+    });
+    this.editedRowIndex =rowIndex;
+
+    sender.editRow(rowIndex,this.formGroup);
   }
 }

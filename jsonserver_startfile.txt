@@ -3,5 +3,6 @@ https://medium.com/codingthesmartway-com-blog/create-a-rest-api-with-json-server
 
 npm install -g json-server
 
+npm install -g @angular/cli
 
 json-server --watch db.json
