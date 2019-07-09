@@ -100,12 +100,11 @@ export class DemocmpComponent implements OnInit {
       // console.log("isnew else");
       this._userservice.edituser(user).subscribe(data => {
         // console.log('api result', data);
-  
-        var temp = this.usersData.find(x => user.id);
-        console.log("temp is",temp.id);
+        var temp = this.usersData.findIndex(x=>x.id == data.id);
+        this.usersData[temp] = user;
         this.dataStateChange(this.state);
+        // console.log("Temp data",temp);
       });
-      // this.dataStateChange(this.state);
       sender.closeRow(rowIndex);
     }
   }
