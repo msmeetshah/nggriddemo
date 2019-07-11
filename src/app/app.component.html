@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="container-fluid">
+<div class="container-fluid">
+  <div class="row">
     <div class="col-md-12">
       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active">Angular Demo</a>
@@ -14,9 +14,10 @@
               <a class="nav-link" [routerLink]="['/display']" routerLinkActive="router-link-active">Display <span
                   class="sr-only">(current)</span></a>
             </li>
-            <!-- <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-       </li>
+            <li class="nav-item active">
+              <a class="nav-link" [routerLink]="['/kendotest']" routerLinkActive="router-link-active">Test</a>
+            </li>
+            <!--
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown

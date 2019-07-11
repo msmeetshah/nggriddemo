@@ -50,14 +50,6 @@
       "id": "J4Tv75v"
     },
     {
-      "Name": "Dhoni",
-      "Address": "Ranchi",
-      "Phno": "234",
-      "Gender": "male",
-      "Image": null,
-      "id": "K7mw0BZ"
-    },
-    {
       "Name": "M S Dhoni",
       "Address": "Ranchi",
       "Phno": "9",
@@ -66,7 +58,7 @@
       "id": "ShhBmal"
     },
     {
-      "Name": "Add Data",
+      "Name": "Edit Data",
       "Address": "Add Data",
       "Phno": "32234",
       "Gender": "male",

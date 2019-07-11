@@ -10,12 +10,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpHandler  } from '@angular/common/http';
+import { KendotestcmpComponent } from './kendotestcmp/kendotestcmp.component';
+import { UploadModule } from '@progress/kendo-angular-upload';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DemocmpComponent
+    DemocmpComponent,
+    KendotestcmpComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,8 @@ import { HttpClient, HttpHeaders, HttpClientModule, HttpHandler  } from '@angula
     PDFModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    UploadModule
   ],
   providers: [UsersService ],
   bootstrap: [AppComponent]
