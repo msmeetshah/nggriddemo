@@ -1,66 +1,63 @@
 <div class="row">
-  <div class="container">
-    <!-- <div class="col-md-9">
+    <div class="container">
+        <!-- <div class="col-md-9">
       <button kendoButton mat-raised-button color="primary" (click)="onButtonClick()" >
         <mat-icon>add</mat-icon>Add!
       </button>
     </div> -->
-    <kendo-grid [data]="gridData" [sortable]="true" [pageable]="true" [filterable]="true" filterable="menu"
-      [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [filter]="state.filter"
-      (dataStateChange)='dataStateChange($event)' [groupable]="true" (add)="addHandler($event)"
-      (cancel)="cancelHandler($event)" (save)="saveHandler($event)" (remove)="removeHandler($event)"
-      (edit)="editHandler($event)">
+        <kendo-grid [data]="gridData" [sortable]="true" [pageable]="true" [filterable]="true" filterable="menu" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [filter]="state.filter" (dataStateChange)='dataStateChange($event)' [groupable]="true"
+            (add)="addHandler($event)" (cancel)="cancelHandler($event)" (save)="saveHandler($event)" (remove)="removeHandler($event)" (edit)="editHandler($event)">
 
-      <ng-template kendoGridToolbarTemplate>
-        <button kendoGridPDFCommand icon="file-pdf" style="background: lightgrey;color: black;">Export to PDF</button>
-        <button kendoGridAddCommand icon="add" style="background: lightgrey;color: black;">Add new</button>
-      </ng-template>
+            <ng-template kendoGridToolbarTemplate>
+                <button kendoGridPDFCommand icon="file-pdf" style="background: lightgrey;color: black;">Export to PDF</button>
+                <button kendoGridAddCommand icon="add" id="addbtn" style="background: lightgrey;color: black;">Add new</button>
+            </ng-template>
 
-      <!-- <kendo-grid-column field="Id" title="ID" width="40" [filterable]="false">
+            <!-- <kendo-grid-column field="Id" title="ID" width="40" [filterable]="false">
       </kendo-grid-column> -->
-      <kendo-grid-column field="Name" title="Name" width="100">
-      </kendo-grid-column>
-      <kendo-grid-column field="Address" title="Address" width="100">
-      </kendo-grid-column>
-      <kendo-grid-column field="Phno" title="Phno" width="100">
-      </kendo-grid-column>
-      <kendo-grid-column field="Gender" title="Gender" width="60">
-      </kendo-grid-column>
-      <kendo-grid-column field="Image" title="Image" width="120" [filterable]="false">
-        <ng-template kendoGridCellTemplate let-dataItem>
-          <img [src]="dataItem.Image" [alt]="dataItem.Name" width="100" height="100" />
-        </ng-template>
-      </kendo-grid-column>
+            <kendo-grid-column field="Name" title="Name" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="Address" title="Address" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="Phno" title="Phno" width="100">
+            </kendo-grid-column>
+            <kendo-grid-column field="Gender" title="Gender" width="60">
+            </kendo-grid-column>
+            <kendo-grid-column field="Image" title="Image" width="120" [filterable]="false">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <img [src]="dataItem.Image" [alt]="dataItem.Name" width="100" height="100" />
+                </ng-template>
+            </kendo-grid-column>
 
-      <kendo-grid-command-column title="command" width="120">
+            <kendo-grid-command-column title="command" width="120">
 
-        <ng-template kendoGridCellTemplate let-isNew="isNew">
-          <button kendoGridEditCommand [primary]="true">Edit</button>
-          <button kendoGridRemoveCommand>Remove</button>
-          <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
-          <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
-        </ng-template>
+                <ng-template kendoGridCellTemplate let-isNew="isNew">
+                    <button kendoGridEditCommand [primary]="true">Edit</button>
+                    <button kendoGridRemoveCommand>Remove</button>
+                    <button kendoGridSaveCommand [disabled]="formGroup?.invalid">{{ isNew ? 'Add' : 'Update' }}</button>
+                    <button kendoGridCancelCommand>{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+                </ng-template>
 
-      </kendo-grid-command-column>
+            </kendo-grid-command-column>
 
-      <kendo-grid-pdf fileName="Users.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
-        <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
-        <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages">
-          <div class="page-template">
-            <div class="header">
-              <!-- <div style="float: right">Page {{ pageNum }} of {{ totalPages }}</div>
+            <kendo-grid-pdf fileName="Users.pdf" [allPages]="true" paperSize="A4" [repeatHeaders]="true" [landscape]="true">
+                <kendo-grid-pdf-margin top="2cm" left="1cm" right="1cm" bottom="2cm"></kendo-grid-pdf-margin>
+                <ng-template kendoGridPDFTemplate let-pageNum="pageNum" let-totalPages="totalPages">
+                    <div class="page-template">
+                        <div class="header">
+                            <!-- <div style="float: right">Page {{ pageNum }} of {{ totalPages }}</div>
               Multi-page grid with automatic page breaking -->
-            </div>
-            <div class="footer">
-              Page {{ pageNum }} of {{ totalPages }}
-            </div>
-          </div>
-        </ng-template>
-      </kendo-grid-pdf>
+                        </div>
+                        <div class="footer">
+                            Page {{ pageNum }} of {{ totalPages }}
+                        </div>
+                    </div>
+                </ng-template>
+            </kendo-grid-pdf>
 
-    </kendo-grid>
+        </kendo-grid>
 
-  </div>
+    </div>
 </div>
 
 <!-- <table>

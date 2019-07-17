@@ -18,7 +18,7 @@ export class DemocmpComponent implements OnInit {
   public gridData: GridDataResult;
   private editedRowIndex: number;
   public formGroup: FormGroup;
-  
+
   public state: State = {
     skip: 0,
     take: 10,
@@ -81,7 +81,7 @@ export class DemocmpComponent implements OnInit {
   }
   public saveHandler({ sender, rowIndex, formGroup, isNew }) {
 
-    
+
     const user: Users = formGroup.value;
     // console.log(user);
 
@@ -96,7 +96,7 @@ export class DemocmpComponent implements OnInit {
       sender.closeRow(rowIndex);
 
     } else {
-      
+
       // console.log("isnew else");
       this._userservice.edituser(user).subscribe(data => {
         // console.log('api result', data);
