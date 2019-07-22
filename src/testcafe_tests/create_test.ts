@@ -1,5 +1,4 @@
 import { Selector } from 'testcafe';
-import { TestBed, async } from '@angular/core/testing';
 
 
 fixture `Create Test`
