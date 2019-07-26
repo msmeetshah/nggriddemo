@@ -7,6 +7,5 @@ test('New Test', async t => {
     await t
         .typeText(Selector('#exampleInputEmail1'), 'idealfileadmin')
         .typeText(Selector('#exampleInputPassword1'), 'Hole17!')
-        .click(Selector('button').withText('Login'))
-        ;
+        .expect(Selector('.k-widget.k-grid.ng-star-inserted').count).gte(1,"Data is not available");
 });

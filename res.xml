@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite name="TestCafe Tests: Chrome 75.0.3770 / Windows 10.0.0" tests="5" failures="0" skipped="0" errors="0" time="62.023" timestamp="Tue, 23 Jul 2019 08:07:20 GMT" >
+  <testcase classname="Login Dashboard Test" name="Login Test" time="12.701">
+  </testcase>
+  <testcase classname="Login Dashboard Test" name="Dashboard Search Test" time="14.839">
+  </testcase>
+  <testcase classname="Login Dashboard Test" name="My Jobpacks Grid Test" time="11.14">
+  </testcase>
+  <testcase classname="Login Dashboard Test" name="Recently Added Grid Test" time="11.156">
+  </testcase>
+  <testcase classname="Login Dashboard Test" name="Archived Grid Test" time="12.115">
+  </testcase>
+</testsuite>
